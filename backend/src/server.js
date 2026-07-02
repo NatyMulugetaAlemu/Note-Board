@@ -15,14 +15,14 @@ dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 5001
-// const __dirname = path.resolve()
+const __dirname = path.resolve()
 
-// if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== "production") {
 app.use(cors({
     origin: "http://localhost:5173",
     credentials: true,
 }));
-// }
+}
 app.use(express.json())
 app.use(rateLimiter)
 app.use(cookieParser());
@@ -30,13 +30,13 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes)
 app.use("/api/notes", noteRoutes);
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../front-end/dist")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "../front-end", "dist", "index.html"));
-//   });
-// }
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
 
 
 
