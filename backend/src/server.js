@@ -6,11 +6,11 @@ import dns from "node:dns";
 dns.setServers(["1.1.1.1", "1.0.0.1"]);
 import dotenv from "dotenv"
 import path from "path"
-
 import authRoutes from './routes/authRoute.js';
 
 import rateLimiter from "./middleware/rateLimiter.js";
 import cors from 'cors'
+import job from "./config/cron.js";
 dotenv.config()
 
 const app = express()
@@ -22,6 +22,10 @@ app.use(cors({
     origin: "http://localhost:5173",
     credentials: true,
 }));
+}
+
+if(process.env.NODE_ENV==="production"){
+    job.start()
 }
 app.use(express.json())
 app.use(rateLimiter)
