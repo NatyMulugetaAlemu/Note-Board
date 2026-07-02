@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
 import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LogInPage";
+import LoginPage from "./pages/LoginPage";
 
 
 const App = () => {
