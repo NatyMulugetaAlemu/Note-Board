@@ -1,6 +1,5 @@
 
 import SignUpPage from "./pages/SignUpPage";
-import LogInPage from "./pages/LogInPage";
 import CreatePage from "./pages/CreatePage";
 import NoteDetailPage from "./pages/NoteDetailPage";
 import { Routes, Route, Navigate } from "react-router";
