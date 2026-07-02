@@ -27,6 +27,9 @@ app.use(express.json())
 app.use(rateLimiter)
 app.use(cookieParser());
 
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ success: true });
+});
 app.use("/api/auth", authRoutes)
 app.use("/api/notes", noteRoutes);
 
