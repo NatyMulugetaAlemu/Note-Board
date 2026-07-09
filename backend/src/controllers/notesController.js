@@ -27,20 +27,7 @@ export async function getNoteById(req, res) {
   }
 }
 
-// export async function getNotesByUserId(req, res) {
-//   try {
-//     const { userId } = req.params;
 
-//      const notes = await Note.find({ user: req.user.id }).sort({
-//       createdAt: -1,
-//     })
-
-//     res.status(200).json(notes);
-//   } catch (error) {
-//     console.log("Error getting the transactions", error);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// }
 
 export async function createNote(req, res) {
   try {
