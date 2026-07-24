@@ -1,10 +1,5 @@
 import express from "express";
-import {
-  createNote,
-  deleteNote,
-  getAllNotes,
-  getNoteById,
-  updateNote,
+import {createNote,deleteNote,getAllNotes,getNoteById,updateNote,
 } from "../controllers/notesController.js";
 import { protectRoute } from "../middleware/protectRoute.js"; // <-- adjust the path if needed
 

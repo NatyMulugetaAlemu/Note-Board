@@ -1,17 +1,16 @@
 import express from "express"
+import authRoutes from './routes/authRoute.js';
 import noteRoutes from "./routes/noteRoutes.js"
 import { connectDB } from "./config/db.js"
 import cookieParser from "cookie-parser";
+import rateLimiter from "./middleware/rateLimiter.js";
 import dns from "node:dns";
 dns.setServers(["1.1.1.1", "1.0.0.1"]);
 import dotenv from "dotenv"
-import path from "path"
-import authRoutes from './routes/authRoute.js';
-
-import rateLimiter from "./middleware/rateLimiter.js";
-import cors from 'cors'
-import job from "./config/cron.js";
 dotenv.config()
+import job from "./config/cron.js";
+import cors from 'cors'
+import path from "path"
 
 const app = express()
 const PORT = process.env.PORT || 5001
